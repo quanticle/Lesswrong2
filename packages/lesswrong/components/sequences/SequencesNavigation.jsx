@@ -63,7 +63,6 @@ const SequencesNavigation = ({
     return (
       <div className="sequences-navigation-top">
         <Components.SequencesNavigationLink
-                          slug={prevPostSlug}
                           documentUrl={prevPostUrl}
                           direction="left" />
 
@@ -72,7 +71,6 @@ const SequencesNavigation = ({
                         </div>
 
         <Components.SequencesNavigationLink
-                          slug={nextPostSlug}
                           documentUrl={nextPostUrl}
                           direction="right" />
       </div>

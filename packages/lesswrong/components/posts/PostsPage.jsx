@@ -73,17 +73,29 @@ class PostsPage extends Component {
     const post = this.props.document
     const sequenceId = this.props.params.sequenceId;
     const canonicalCollectionSlug = post.canonicalCollectionSlug;
+    const canonicalSequenceSlug = post.canonicalSequenceSlug;
     if (canonicalCollectionSlug && post && post.canonicalBook && post.canonicalBook.title) {
 
-      return <Components.SequencesNavigation
-                title={ post.canonicalBook.title }
-                nextPostSlug={ post.canonicalNextPostSlug }
-                prevPostSlug={ post.canonicalPrevPostSlug }
-                nextPostUrl={ post.canonicalNextPostSlug && "/" + post.canonicalCollectionSlug + "/" + post.canonicalNextPostSlug }
-                prevPostUrl={ post.canonicalPrevPostSlug && "/" + post.canonicalCollectionSlug + "/" + post.canonicalPrevPostSlug }
-              />
-    }
-    if (sequenceId) {
+      return (
+        <Components.CollectionsNavigation
+                  title={ post.canonicalBook.title }
+                  nextPostSlug={ post.canonicalNextPostSlug }
+                  prevPostSlug={ post.canonicalPrevPostSlug }
+                  nextPostUrl={ post.canonicalNextPostSlug && "/" + post.canonicalCollectionSlug + "/" + post.canonicalNextPostSlug }
+                  prevPostUrl={ post.canonicalPrevPostSlug && "/" + post.canonicalCollectionSlug + "/" + post.canonicalPrevPostSlug }
+                />
+      )
+    } else if (canonicalSequenceSlug && post && post.canonicalSequence && post.canonicalSequence.title) {
+      return (
+        <Components.CollectionsNavigation
+                  title={ post.canonicalSequence.title }
+                  nextPostSlug={ post.canonicalNextPostSlug }
+                  prevPostSlug={ post.canonicalPrevPostSlug }
+                  nextPostUrl={ post.canonicalNextPostSlug && "/" + post.canonicalCollectionSlug + "/" + post.canonicalNextPostSlug }
+                  prevPostUrl={ post.canonicalPrevPostSlug && "/" + post.canonicalCollectionSlug + "/" + post.canonicalPrevPostSlug }
+                />
+      )
+    } else if (sequenceId) {
       return <Components.SequencesNavigation
                 documentId={sequenceId}
                 post={post} />

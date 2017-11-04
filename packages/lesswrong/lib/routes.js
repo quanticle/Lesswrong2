@@ -10,11 +10,11 @@ addRoute({ name: 'SunshineDashboard', path: '/sunshine', componentName: 'Sunshin
 
 // Sequences
 addRoute({ name: 'sequencesHome', path: '/library', componentName: 'SequencesHome' });
-addRoute({ name: 'sequences', path: '/sequences/:_id', componentName: 'SequencesSingle' });
+addRoute({ name: 'sequences.single', path: '/sequences/:_id', componentName: 'SequencesSingle' });
+addRoute({ name: 'sequences.slug', path: '/sequences/:slug', componentName: 'SequencesSingle' });
 addRoute({ name: 'sequencesEdit', path: '/sequencesEdit/:_id', componentName: 'SequencesEditForm'});
 addRoute({ name: 'sequencesNew', path: '/sequencesNew', componentName: 'SequencesNewForm'});
 addRoute({ name: 'sequencesPost', path: '/s/:sequenceId/p/:postId', componentName: 'SequencesPost'});
-
 
 addRoute({ name: 'chaptersEdit', path: '/chaptersEdit/:_id', componentName: 'ChaptersEditForm'});
 
@@ -29,6 +29,7 @@ addRoute({ name: 'HPMOR.posts.single', path: '/hpmor/:slug', componentName: 'Pos
 
 addRoute({ name: 'Codex', path: '/codex', componentName: 'Codex'})
 addRoute({ name: 'Codex.posts.single', path: '/codex/:slug', componentName: 'PostsSingleSlugWrapper'})
+
 
 addRoute({ name: 'Meta', path: '/meta', componentName: 'Meta'})
 addRoute({ name: 'AllPosts', path: '/allPosts', componentName: 'AllPosts'})

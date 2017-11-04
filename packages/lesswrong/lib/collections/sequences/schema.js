@@ -164,6 +164,24 @@ const schema = {
     viewableBy: ['guests'],
   },
 
+  canonicalCollectionSlug: {
+    type: String,
+    optional: true,
+    viewableBy: ['guests'],
+    editableBy: ['admins'],
+    insertableBy: ['admins'],
+    hidden: false,
+    control: "text",
+    resolveAs: {
+      fieldName: 'canonicalCollection',
+      addOriginalField: true,
+      type: "Collection",
+      resolver: (sequence, args, context) => {
+        if (!sequence.canonicalCollectionSlug) return null;
+        return context.Collections.findOne({slug: sequence.canonicalCollectionSlug})
+      }
+    }
+  }
 }
 
 
